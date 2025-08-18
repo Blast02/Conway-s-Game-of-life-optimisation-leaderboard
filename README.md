@@ -6,6 +6,7 @@ This repository is a **personal training project** to:
 - Learn the basics of **low-level languages** like C, C++, or Rust 🦀  
 
 At first, it was simply a way for me to move beyond Python and try something new.  
+My first version of the game in Python was made in less than a day, without AI or any form of optimization. I just wanted to have a basic reference implementation.  
 
 ---
 
