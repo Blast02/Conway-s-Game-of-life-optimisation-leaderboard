@@ -32,15 +32,17 @@ def alive(current_grid): #process wach cell to determine the next state
 	next_grid = numpy.zeros_like(current_grid)
 
 	def count_ones(x, y):# count number of one around a cell
+		H, W = current_grid.shape
 		count = 0
-		rows, cols = current_grid.shape
-		for i in range(x -1, x + 2):
-			for j in range(y - 1, y +2):
-				if (i == x and j == y):
-					continue
-				if 0 <= i < rows and 0 <= j < cols:
-					if current_grid[i, j] == 1:
-						count += 1
+		
+		for dy in [-1, 0, 1]:
+			for dx in [-1, 0, 1]:
+				if dx == 0 and dy == 0:
+					continue  
+				nx = (x + dx) % W  
+				ny = (y + dy) % H  
+				count += current_grid[ny, nx]
+	            
 		return count
 
 	for i in range(current_grid.shape[0]):
@@ -94,3 +96,4 @@ while main: # main loop
 		pygame.display.flip()
 
 pygame.quit()
+
