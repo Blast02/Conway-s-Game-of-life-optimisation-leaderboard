@@ -25,6 +25,7 @@ I want to keep track of two **leaderboards** for Conway’s Game of Life:
 - Grid size: **1280 × 720** with a cell size of **10 pixels**.  
 - The game **must render to the screen** (e.g. with `pygame`) → ❌ terminal output not allowed.  
 - Initial grid must be generated using **NumPy random number generator** with **seed = 42**.  
+- The grid must **wrap around (no walls)** 🔄.  
 
 ### Table Example  
 
@@ -39,7 +40,8 @@ I want to keep track of two **leaderboards** for Conway’s Game of Life:
 ### Rules  
 - Grid size: **1280 × 720** with a cell size of **10 pixels**.  
 - The game **must render to the screen** → ❌ terminal output not allowed.  
-- Initial grid must be generated with a **random number generator** using **seed = 42**.  
+- Initial grid must be generated with a **random integers generator** using **seed = 42**.  
+- The grid must **wrap around (no walls)** 🔄.  
 
 ### Table Example  
 
