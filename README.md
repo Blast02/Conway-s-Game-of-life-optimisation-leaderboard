@@ -33,9 +33,8 @@ I want to keep track of two **leaderboards** for Conway’s Game of Life:
 |--------------------|----------|---------------------|-----------------------|
 | Blast02 / Base version | Python | 13.549s (≈36.901 tick/s) | Too long ❌ |
 
-After the 500 steps your grid should look like this:
-
-![Python 500 steps result] <img width="1601" height="896" alt="image" src="https://github.com/user-attachments/assets/191b551f-5e64-4b10-8fc8-a0e0900b52f4" />
+# After the 500 steps your grid should look like this:
+<img width="1601" height="896" alt="image" src="https://github.com/user-attachments/assets/191b551f-5e64-4b10-8fc8-a0e0900b52f4" />
 
 ---
 
