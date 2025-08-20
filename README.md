@@ -32,7 +32,6 @@ I want to keep track of two **leaderboards** for Conway’s Game of Life:
 | Author / Technique | Language | ⏱️ Time (500 steps) | ⏱️ Time (5,000 steps) |
 |--------------------|----------|---------------------|-----------------------|
 | Blast02 / Base version | Python | 13.549s (≈36.901 steps/s) | 134.232s (≈37.248 steps/s) |
-|--------------------|----------|---------------------|-----------------------|
 | Blast02 / GPT5 | Python | 26.956s (≈18,548 steps/s) | 239.830s (≈20,848 steps/s) |
 
 # After the 500 steps your grid should look like this:
