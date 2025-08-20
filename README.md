@@ -29,12 +29,15 @@ I want to keep track of two **leaderboards** for Conway’s Game of Life:
 
 ### Table Example  
 
-| Author / Technique | Language | ⏱️ Time (500 ticks) | ⏱️ Time (5,000 ticks) |
+| Author / Technique | Language | ⏱️ Time (500 steps) | ⏱️ Time (5,000 steps) |
 |--------------------|----------|---------------------|-----------------------|
-| Blast02 / Base version | Python | 13.549s (≈36.901 tick/s) | Too long ❌ |
+| Blast02 / Base version | Python | 13.549s (≈36.901 steps/s) | 134.232s (≈37.248 steps/s) |
 
 # After the 500 steps your grid should look like this:
 <img width="1601" height="896" alt="image" src="https://github.com/user-attachments/assets/191b551f-5e64-4b10-8fc8-a0e0900b52f4" />
+
+# After the 5,000 steps your grid should look like this:
+<img width="1599" height="900" alt="image" src="https://github.com/user-attachments/assets/d8387663-fe54-40fe-ae19-8cbad9d2682f" />
 
 ---
 
@@ -43,12 +46,12 @@ I want to keep track of two **leaderboards** for Conway’s Game of Life:
 ### Rules  
 - Grid size: **1280 × 720** with a cell size of **10 pixels**.  
 - The game **must render to the screen** → ❌ terminal output not allowed.  
-- Initial grid must be generated with a **random integers generator** using **seed = 42**.  
+- Initial grid must be generated with a **random integers generator** using **seed = 1337**.  
 - The grid must **wrap around (no walls)** 🔄.  
 
 ### Table Example  
 
-| Author / Technique | Language | ⏱️ Time (100,000 ticks) | ⏱️ Time (1,000,000 ticks) | ⏱️ Time (5,000,000 ticks) |
+| Author / Technique | Language | ⏱️ Time (100,000 steps) | ⏱️ Time (1,000,000 steps) | ⏱️ Time (5,000,000 steps) |
 |--------------------|----------|-------------------------|---------------------------|---------------------------|
 | –                  | –        | –                       | –                         | –                         |
 
