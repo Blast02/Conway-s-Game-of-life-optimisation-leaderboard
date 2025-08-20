@@ -1,3 +1,6 @@
+# First version of game of life. numpy is import but i only use python slow for loop.
+
+
 import numpy
 import pygame
 import time
@@ -96,3 +99,4 @@ while main: # main loop
 		pygame.display.flip()
 
 pygame.quit()
+
