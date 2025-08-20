@@ -31,14 +31,14 @@ def grid(): #draw white grid
 		pygame.draw.line(frame, WHITE, (0, y), (window_width, y))	
 	pygame.draw.rect(frame, WHITE, (0, 0, window_width, window_height), width=1)
 
-def alive(current_grid): #process wach cell to determine the next state
+def alive(current_grid): #process each cell to determine the next state
 	next_grid = numpy.zeros_like(current_grid)
 
 	def count_ones(y, x):
 		H, W = current_grid.shape
 		count = 0
 
-		for dy in [-1, 0, 1]:
+		for dy in [-1, 0, 1]: # count neighbors
 			for dx in [-1, 0, 1]:
 				if dx == 0 and dy == 0:
 					continue  
@@ -48,7 +48,7 @@ def alive(current_grid): #process wach cell to determine the next state
 	            
 		return count
 
-	for i in range(current_grid.shape[0]):
+	for i in range(current_grid.shape[0]): # update grid 
 		for j in range(current_grid.shape[1]):
 			if current_grid[i, j] == 0 and count_ones(i, j) == 3:
 				next_grid[i, j] = 1
@@ -99,4 +99,5 @@ while main: # main loop
 		pygame.display.flip()
 
 pygame.quit()
+
 
