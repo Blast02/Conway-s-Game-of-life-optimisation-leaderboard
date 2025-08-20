@@ -24,15 +24,16 @@ I want to keep track of two **leaderboards** for Conway’s Game of Life:
 - Must be implemented in **Python**.  
 - Grid size: **1280 × 720** with a cell size of **10 pixels**.  
 - The game **must render to the screen** (e.g. with `pygame`) → ❌ terminal output not allowed.  
-- Initial grid must be generated using **NumPy random number generator** with **seed = 1337**.  
+- Initial grid must be generated using **NumPy random integer generator** with **seed = 1337**.  
 - The grid must **wrap around (no walls)** 🔄.  
 
-### Table Example  
+### Python leaderboard  
 
 | Author / Technique | Language | ⏱️ Time (500 steps) | ⏱️ Time (5,000 steps) |
 |--------------------|----------|---------------------|-----------------------|
-| Blast02 / Base version | Python | 13.549s (≈36.901 steps/s) | 134.232s (≈37.248 steps/s) |
-| Blast02 / GPT5 | Python | 26.956s (≈18,548 steps/s) | 239.830s (≈20,848 steps/s) |
+| Blast02 / Base version + numpy | Python | 4.605s (≈108.573 steps/s) 2,94X faster| 38.920s (≈128.468 steps/s) 3.44X faster |
+| Blast02 / Base version | Python | 13.549s (≈36.901 steps/s) -- | 134.232s (≈37.248 steps/s) -- |
+| Blast02 / GPT5 | Python | 26.956s (≈18,548 steps/s) 1.36X slower | 239.830s (≈20,848 steps/s) 1.78X slower |
 
 # After the 500 steps your grid should look like this:
 <img width="1601" height="896" alt="image" src="https://github.com/user-attachments/assets/191b551f-5e64-4b10-8fc8-a0e0900b52f4" />
@@ -50,7 +51,7 @@ I want to keep track of two **leaderboards** for Conway’s Game of Life:
 - Initial grid must be generated with a **random integers generator** using **seed = 1337**.  
 - The grid must **wrap around (no walls)** 🔄.  
 
-### Table Example  
+### Multi-language leaderboard  
 
 | Author / Technique | Language | ⏱️ Time (100,000 steps) | ⏱️ Time (1,000,000 steps) | ⏱️ Time (5,000,000 steps) |
 |--------------------|----------|-------------------------|---------------------------|---------------------------|
