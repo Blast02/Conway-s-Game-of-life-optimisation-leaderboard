@@ -31,6 +31,7 @@ I want to keep track of two **leaderboards** for Conway’s Game of Life:
 
 | Author | Version / Technique | ⏱️ Time (500 steps) | ⏱️ Time (5,000 steps) |
 |--------------------|----------|---------------------|-----------------------|
+| Blast02 | V4: v3 + pre-draw grid + move variable to global | 3.073s (≈162.664 steps/s) 4.40X faster | 25.415s (≈196.733 steps/s) 5,281X faster |
 | Blast02 | V3: V2 + remove unnecessary code | 3.638s (≈137.431 steps/s) 3.72X faster| 28.980s (≈172.529 steps/s) 4.63X faster |
 | Blast02 | V2: Base version + numpy | 4.605s (≈108.573 steps/s) 2,94X faster| 38.920s (≈128.468 steps/s) 3.44X faster |
 | Blast02 | V1: Base version | 13.549s (≈36.901 steps/s) -- | 134.232s (≈37.248 steps/s) -- |
