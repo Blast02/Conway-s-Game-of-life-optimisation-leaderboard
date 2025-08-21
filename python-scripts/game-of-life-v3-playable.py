@@ -15,7 +15,7 @@ BLACK = (23, 23, 23)
 WHITE = (254, 254, 254)
 GREEN = (0, 254, 0)
 cell = 10 # size of one cell
-fps = 0
+fps = 2
 
 #rng = numpy.random.default_rng(seed=1337) #seed set to 1337
 #current_grid = rng.integers(0, 2, size=(int(window_height / cell), int(window_width / cell)), dtype=int)
@@ -129,3 +129,4 @@ while main: # main loop
 		pygame.display.flip()
 
 pygame.quit()
+
