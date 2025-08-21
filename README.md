@@ -33,9 +33,10 @@ I want to keep track of two **leaderboards** for Conway’s Game of Life:
 |--------------------|----------|---------------------|-----------------------|
 | Blast02 | V4: v3 + pre-draw grid + move variable to global | 3.073s (≈162.664 steps/s) 4.40X faster | 25.415s (≈196.733 steps/s) 5,281X faster |
 | Blast02 | V3: V2 + remove unnecessary code | 3.638s (≈137.431 steps/s) 3.72X faster| 28.980s (≈172.529 steps/s) 4.63X faster |
+| Blast02 | GPT5-thinking-ask-to-opti-2-shot | 3.916s (≈127,681 steps/s) 3,45X faster| 33.558s (≈148,995 steps/s) 4X faster |
 | Blast02 | V2: Base version + numpy | 4.605s (≈108.573 steps/s) 2,94X faster| 38.920s (≈128.468 steps/s) 3.44X faster |
 | Blast02 | V1: Base version | 13.549s (≈36.901 steps/s) -- | 134.232s (≈37.248 steps/s) -- |
-| Blast02 | GPT5 | 26.956s (≈18,548 steps/s) 1.36X slower | 239.830s (≈20,848 steps/s) 1.78X slower |
+| Blast02 | GPT5-thinking-no-opti-1-shot | 26.956s (≈18,548 steps/s) 1.36X slower | 239.830s (≈20,848 steps/s) 1.78X slower |
 
 # After the 500 steps your grid should look like this:
 <img width="1601" height="896" alt="image" src="https://github.com/user-attachments/assets/191b551f-5e64-4b10-8fc8-a0e0900b52f4" />
