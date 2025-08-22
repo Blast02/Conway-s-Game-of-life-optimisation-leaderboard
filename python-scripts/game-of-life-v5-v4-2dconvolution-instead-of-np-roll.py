@@ -1,6 +1,11 @@
+# Version 5 of the Python Game of Life implementation:
+# Use 2dconvolution to sum neighbors without python for loop
+
+
 import numpy
 import pygame
 import time
+from scipy.signal import convolve2d
 
 window_width = 1280
 window_height = 720
@@ -15,43 +20,26 @@ rng = numpy.random.default_rng(seed=1337) #seed set to 1337
 current_grid = rng.integers(0, 2, size=(int(window_height / cell), int(window_width / cell)), dtype=int)
 next_grid = current_grid.copy()
 
+white_grid = pygame.Surface((window_width, window_height), pygame.SRCALPHA) # pre calculate white grid
+for x in range(0, window_width, cell):
+    pygame.draw.line( white_grid, WHITE, (x, 0), (x, window_height))
+for y in range(0, window_height, cell):
+    pygame.draw.line( white_grid, WHITE, (0, y), (window_width, y))
+pygame.draw.rect( white_grid, WHITE, (0, 0, window_width, window_height), width=1)
+
 pygame.init()
 frame = pygame.display.set_mode([window_width, window_height])
 clock = pygame.time.Clock()
 frame.fill(BLACK)
 main = True
+frozen = False
 
-def grid(): #draw white grid
-	for x in range(0, window_width, cell):
-		pygame.draw.line(frame, WHITE, (x, 0), (x, window_height))
-	for y in range(0, window_height, cell):
-		pygame.draw.line(frame, WHITE, (0, y), (window_width, y))	
-	pygame.draw.rect(frame, WHITE, (0, 0, window_width, window_height), width=1)
-
-def alive(current_grid): #process wach cell to determine the next state
-	next_grid = numpy.zeros_like(current_grid)
-
-	def count_ones(y, x):
-		H, W = current_grid.shape
-		count = 0
-
-		for dy in [-1, 0, 1]:
-			for dx in [-1, 0, 1]:
-				if dx == 0 and dy == 0:
-					continue  
-				nx = (x + dx) % W  
-				ny = (y + dy) % H  
-				count += current_grid[ny, nx]
-	            
-		return count
-
-	for i in range(current_grid.shape[0]):
-		for j in range(current_grid.shape[1]):
-			if current_grid[i, j] == 0 and count_ones(i, j) == 3:
-				next_grid[i, j] = 1
-			if current_grid[i, j] == 1 and (count_ones(i, j) == 2 or count_ones(i, j) == 3):
-				next_grid[i, j] = 1
-
+def alive(current_grid): #process each cell to determine the next state
+	kernel = numpy.ones((3,3), dtype=int)
+	nb_cells = convolve2d(current_grid, kernel, mode='same', boundary='wrap') - current_grid # use 2dconvolution to sum neighbors without python for loop
+	survive = ((current_grid == 1) & ((nb_cells == 2) | (nb_cells == 3)))
+	born = ((current_grid == 0) & (nb_cells == 3))
+	next_grid = numpy.where(survive | born, 1, 0)
 	return next_grid
 
 def draw_alive(next_grid): #draw a green rectangle to each 1 in the grid
@@ -61,12 +49,10 @@ def draw_alive(next_grid): #draw a green rectangle to each 1 in the grid
 		for c in range(next_grid.shape[1]):
 			if next_grid[r, c] == 1:
 				frame.fill(GREEN, (c*cell, r*cell, cell, cell))
+	frame.blit(white_grid, (0, 0)) # draw pre calculate grid
 
-	pygame.display.flip()
 
 start = time.perf_counter()
-frozen = False
-
 while main: # main loop
 	for event in pygame.event.get():
 		if event.type == pygame.QUIT:
@@ -77,11 +63,10 @@ while main: # main loop
 			if event.key == pygame.K_ESCAPE:
 				pygame.quit()
 				main = False
-	
+
 	if not frozen: # tick and time counter
 		next_grid = alive(current_grid)
 		draw_alive(next_grid)
-		grid()
 		current_grid = next_grid.copy()
 		tick += 1
 		if tick >= nb_tick:
@@ -89,8 +74,6 @@ while main: # main loop
 			print("time:",end - start)
 			print("tick/s:",tick / (end - start))
 			frozen = True
-	else:
-		pygame.time.wait(100)
 
 	if main:			
 		pygame.display.flip()

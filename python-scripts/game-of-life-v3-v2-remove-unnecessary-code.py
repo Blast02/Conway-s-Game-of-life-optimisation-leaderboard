@@ -36,8 +36,8 @@ def grid(): #draw white grid
 def alive(current_grid): #process each cell to determine the next state
     nb_cells = numpy.zeros_like(current_grid)
     neighbors_grid = [(-1, -1), (-1, 0), (-1, 1),
-              (0, -1),           (0, 1),
-              (1, -1),  (1, 0),  (1, 1)]
+          (0, -1),           (0, 1),
+          (1, -1),  (1, 0),  (1, 1)]
     for dy, dx in neighbors_grid:
         nb_cells += numpy.roll(numpy.roll(current_grid, dy, axis=0), dx, axis=1)
 

@@ -129,4 +129,3 @@ while main: # main loop
 		pygame.display.flip()
 
 pygame.quit()
-

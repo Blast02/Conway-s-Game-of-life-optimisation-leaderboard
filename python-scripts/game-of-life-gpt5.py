@@ -9,7 +9,7 @@ from time import perf_counter
 # Display size
 FIG_WIDTH_PX  = 1280
 FIG_HEIGHT_PX = 720
-CELL_SIZE_PX  = 10
+CELL_SIZE_PX  = 2
 
 # Grid size
 COLS = FIG_WIDTH_PX  // CELL_SIZE_PX   # 128
@@ -17,7 +17,7 @@ ROWS = FIG_HEIGHT_PX // CELL_SIZE_PX   # 72
 
 # Settings
 SEED = 1337
-STEPS = 5000
+STEPS = 500
 
 # Colormap : 0=blanc, 1=vert
 cmap = ListedColormap(["black", "green"])

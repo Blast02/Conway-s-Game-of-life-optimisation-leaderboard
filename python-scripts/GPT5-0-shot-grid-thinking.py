@@ -2,7 +2,7 @@
 # follow those rules :
 # - use python
 # - The game must be rendered in a 1280×720 window. You CAN'T use the terminal for rendering the game.
-# - Each cell is 10 pixels, resulting in a grid of 128×72 cells
+# - Each cell is 2 pixels, resulting in a grid of 640×360 cells
 # -  Initialize the grid using the following code: """rng = numpy.random.default_rng(seed=1337) 
 #    current_grid = rng.integers(0, 2, size=(int(window_height / cell), int(window_width / cell)), dtype=int)"""
 # - The grid must wrap around (no walls)
@@ -21,10 +21,10 @@ from time import perf_counter
 # Window / grid parameters
 window_width = 1280
 window_height = 720
-cell = 10  # px per cell
+cell = 2  # px per cell
 
-cols = int(window_width // cell)   # 128
-rows = int(window_height // cell)  # 72
+cols = int(window_width // cell)   # 640
+rows = int(window_height // cell)  # 360
 
 # Initialize grid using the exact RNG code you requested
 rng = np.random.default_rng(seed=1337)
@@ -75,7 +75,7 @@ def draw_grid():
 
 # MAIN
 running = True
-measure_steps = 5001
+measure_steps = 501
 steps_done = 0
 timing_started = False
 start_time = 0.0
@@ -108,7 +108,6 @@ while running:
     # overlay the white grid lines (1 px)
     draw_grid()
     pygame.display.flip()
-
     # No fps cap so it runs as fast as it can; uncomment to cap: clock.tick(60)
 
 pygame.quit()
