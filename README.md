@@ -31,13 +31,13 @@ I want to keep track of two **leaderboards** for Conway’s Game of Life:
 
 | Author | Version / Technique | ⏱️ Time 500 steps (10px) | ⏱️ Time 500 steps (2px) |
 |--------------------|----------|---------------------|-----------------------|
-| Blast02 | V4: v3 + pre-draw grid + move variable to global | **3.073s (≈162.6 steps/s) +4.40X** | 30.407s (≈16.44 steps/s) +10.7X |
-| Blast02 | V5: v4 2dconvolution instead of np.roll | 3.108s (≈160.8 steps/s) +4.35X | 26.685s (≈18.73 steps/s) +12.22X |
-| Blast02 | V3: V2 + remove unnecessary code | 3.638s (≈137.4 steps/s) +3.72X | 32.860s (≈15.21 steps/s) +9.93X |
-| Blast02 | GPT5-thinking-ask-to-opti-2-shot | 3.916s (≈127.6 steps/s) +3.45X | **8.006s (≈62.45 steps/s) +40.75X** |
-| Blast02 | V2: Base version + numpy | 4.605s (≈108.5 steps/s) +2.94X | 34.972s (≈14.2 steps/s) +9.33X |
-| Blast02 | V1: Base version | 13.549s (≈36.9 steps/s) -- | 326.304s (≈1.5 steps/s) -- |
-| Blast02 | GPT5-thinking-no-opti-1-shot | 26.956s (≈18.5 steps/s) -1.36X | 36.376s (≈13.7 steps/s) +8.97X  |
+| Blast02 | V4: v3 + pre-draw grid + move variable to global | **2.704s (≈184.8 steps/s) 508.2%** | 28.447s (≈17.5 steps/s) 1145.1% |
+| Blast02 | V5: v4 2dconvolution instead of np.roll | 2.735s (≈182.8 steps/s) 502.4% | 24.922s (≈20.0 steps/s) 1307.1% |
+| Blast02 | V3: V2 + remove unnecessary code | 2.901s (≈172.3 steps/s) 473.6% | 30.395s (≈16.4 steps/s) 1071.7% |
+| Blast02 | GPT5-thinking-ask-to-opti-2-shot | 3.386s (≈147.2 steps/s) 405.8% | **6.175s (≈80,9 steps/s) 5275.5%** |
+| Blast02 | V2: Base version + numpy | 3.669s (≈136.2 steps/s) 374.5% | 31.987s (≈15.6 steps/s) 1018.4% |
+| Blast02 | V1: Base version | 13.742s (≈36.3 steps/s) 100% | 325.765s (≈1.5 steps/s) 100% |
+| Blast02 | GPT5-thinking-no-opti-1-shot | 22.983s (≈21.7 steps/s) 59.7% | 34.493s (≈14.4 steps/s) 944.4%  |
 
 # After the 500 steps 10px your grid should look like this:
 <img width="1281" height="720" alt="image" src="https://github.com/user-attachments/assets/8765ca2f-44ef-48b6-bc18-caaa834d95fe" />
