@@ -58,7 +58,7 @@ I want to keep track of two **leaderboards** for Conway’s Game of Life:
 
 ### Multi-language leaderboard  
 
-| Author | Version / Technique | Language | ⏱️ Time 100,000 steps (10px) | ⏱️ Time 1,000,000 steps (5px) | ⏱️ Time 5,000,000 steps (2px) |
+| Author | Version / Technique | Language | ⏱️ Time 10,000 steps (10px) | ⏱️ Time 10,000 steps (5px) | ⏱️ Time 10,000 steps (2px) |
 |---------|-----------|----------|-------------------------|---------------------------|---------------------------|
 | –        |-          | –        | –                       | –                         | –                         |
 
