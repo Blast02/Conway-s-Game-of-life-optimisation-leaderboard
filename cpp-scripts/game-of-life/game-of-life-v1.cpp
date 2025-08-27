@@ -21,7 +21,7 @@ static SDL_Window* window = NULL;
 static SDL_Renderer* renderer = NULL;
 
 int step_counter = 0; // benchmark variable
-const int max_steps = 5000;
+const int max_steps = 5000; // number of steps
 bool benchmark_done = false;
 std::chrono::high_resolution_clock::time_point start_time;
 
@@ -36,7 +36,8 @@ const int cols = width / cell;
 std::vector<std::vector<int>> current_grid(rows, std::vector<int>(cols));
 std::vector<std::vector<int>> next_grid(rows, std::vector<int>(cols));
 
-void init_grid(std::vector<std::vector<int>>& grid, unsigned int seed = 49) {
+
+void init_grid(std::vector<std::vector<int>>& grid, unsigned int seed = 49) { // Seed
     std::mt19937 rng(seed);
     std::uniform_int_distribution<int> dist(0, 1);
 
@@ -47,7 +48,8 @@ void init_grid(std::vector<std::vector<int>>& grid, unsigned int seed = 49) {
     }
 }
 
-void draw_grid()
+
+void draw_grid() // Draw white grid
 {
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 
@@ -61,7 +63,8 @@ void draw_grid()
     }
 }
 
-void draw_alive(const std::vector<std::vector<int>>& current_grid)
+
+void draw_alive(const std::vector<std::vector<int>>& current_grid) // Draw green cells
 {
     SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
     for (int y = 0; y < rows; y++)
@@ -77,7 +80,8 @@ void draw_alive(const std::vector<std::vector<int>>& current_grid)
     }
 }
 
-int counts_neighbors(const std::vector<std::vector<int>>& grid, int y, int x)
+
+int counts_neighbors(const std::vector<std::vector<int>>& grid, int y, int x) // Count the number of neighbors
 {
     int count = 0;
     for (int dy = -1; dy <= 1; dy++) {
@@ -93,7 +97,8 @@ int counts_neighbors(const std::vector<std::vector<int>>& grid, int y, int x)
     return count;
 }
 
-std::vector<std::vector<int>> alive(const std::vector<std::vector<int>>& grid)
+
+std::vector<std::vector<int>> alive(const std::vector<std::vector<int>>& grid) // Calculate the next state of the grid
 {
     std::vector<std::vector<int>> next(rows, std::vector<int>(cols, 0));
 
@@ -112,7 +117,8 @@ std::vector<std::vector<int>> alive(const std::vector<std::vector<int>>& grid)
     return next;
 }
 
-SDL_AppResult SDL_AppInit(void** appstate, int argc, char* argv[])
+
+SDL_AppResult SDL_AppInit(void** appstate, int argc, char* argv[]) // Init SDL window
 {
     SDL_SetAppMetadata("Game of life", "1.0", "base-cpp");
 
@@ -126,14 +132,15 @@ SDL_AppResult SDL_AppInit(void** appstate, int argc, char* argv[])
         return SDL_APP_FAILURE;
     }
 
-    init_grid(current_grid);
+    init_grid(current_grid); // Generate 0's and 1's of the grid
     SDL_Delay(1000); // leave time for SDL to generate the window
     start_time = std::chrono::high_resolution_clock::now();
 
     return SDL_APP_CONTINUE;
 }
 
-SDL_AppResult SDL_AppEvent(void* appstate, SDL_Event* event)
+
+SDL_AppResult SDL_AppEvent(void* appstate, SDL_Event* event) // handle input
 {
     if (event->type == SDL_EVENT_QUIT) {
         return SDL_APP_SUCCESS;
@@ -141,27 +148,28 @@ SDL_AppResult SDL_AppEvent(void* appstate, SDL_Event* event)
     return SDL_APP_CONTINUE;
 }
 
-SDL_AppResult SDL_AppIterate(void* appstate)
+
+SDL_AppResult SDL_AppIterate(void* appstate) // While true loop
 {
     Uint32 tickstart = SDL_GetTicks();
 
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-    SDL_RenderClear(renderer);
+    SDL_RenderClear(renderer); // Clear window for next frame
 
-    draw_alive(current_grid);
-    draw_grid();
-    next_grid = alive(current_grid);
-    current_grid = next_grid;
+    draw_alive(current_grid); // Draw green cells
+    draw_grid(); // Draw white grid
+    next_grid = alive(current_grid); // Calculate the next state of the grid
+    current_grid = next_grid; 
 
     step_counter++;
-    if (step_counter >= max_steps) {
+    if (step_counter >= max_steps) { // benchark
         auto end_time = std::chrono::high_resolution_clock::now();
         std::chrono::duration<double> elapsed = end_time - start_time;
 
         double total_seconds = elapsed.count();
         double steps_per_sec = step_counter / total_seconds;
 
-        std::cout << "Benchmark terminé !" << std::endl;
+        std::cout << "Benchmark terminÃ© !" << std::endl;
         std::cout << "Nombre de steps : " << step_counter << std::endl;
         std::cout << "Temps total : " << total_seconds << " secondes" << std::endl;
         std::cout << "Performance : " << steps_per_sec << " steps/s" << std::endl;
@@ -182,3 +190,4 @@ void SDL_AppQuit(void* appstate, SDL_AppResult result)
 {
 
 }
+
