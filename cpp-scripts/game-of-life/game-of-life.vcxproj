@@ -118,16 +118,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\GRZYWACZRobin(Groupe\Downloads\SDL3-devel-3.2.20-VC\SDL3-3.2.20\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>SDL3.lib;SDL3_test.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Users\GRZYWACZRobin(Groupe\Downloads\SDL3-devel-3.2.20-VC\SDL3-3.2.20\lib\x64</AdditionalLibraryDirectories>
     </Link>
     <CustomBuildStep>
-      <Outputs>C:\Users\GRZYWACZRobin(Groupe\source\repos\game-of-life\build-output</Outputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -138,3 +135,4 @@
   </ImportGroup>
 
 </Project>
+
