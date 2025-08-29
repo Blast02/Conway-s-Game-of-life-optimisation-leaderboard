@@ -1,0 +1,9 @@
+[package]
+name = "game-of-life-rust"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+macroquad = "0.4.14"
+rand = "0.8"
+rand_mt = { version = "4.2", features = ["rand-traits"] }
