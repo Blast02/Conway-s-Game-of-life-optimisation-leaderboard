@@ -35,13 +35,13 @@ current_grid = rng.integers(0, 2, size=(int(window_height / cell), int(window_wi
 
 | Author | Version / Technique | ⏱️ Time 500 steps (10px) | ⏱️ Time 500 steps (2px) |
 |--------------------|----------|---------------------|-----------------------|
-| Blast02 | V4: v3 + pre-draw grid + move variable to global | **2.704s (184.8 steps/s) 508.2%** | 28.447s (17.5 steps/s) 1145.1% |
-| Blast02 | V5: v4 2dconvolution instead of np.roll | 2.735s (182.8 steps/s) 502.4% | 24.922s (20.0 steps/s) 1307.1% |
-| Blast02 | V3: V2 + remove unnecessary code | 2.901s (172.3 steps/s) 473.6% | 30.395s (16.4 steps/s) 1071.7% |
-| Blast02 | GPT5-thinking-ask-to-opti-2-shot | 3.386s (147.2 steps/s) 405.8% | **6.175s (80,9 steps/s) 5275.5%** |
-| Blast02 | V2: Base version + numpy | 3.669s (136.2 steps/s) 374.5% | 31.987s (15.6 steps/s) 1018.4% |
-| Blast02 | V1: Base version | 13.742s (36.3 steps/s) 100% | 325.765s (1.5 steps/s) 100% |
-| Blast02 | GPT5-thinking-no-opti-1-shot | 22.983s (21.7 steps/s) 59.7% | 34.493s (14.4 steps/s) 944.4%  |
+| Blast02 | V4: v3 + pre-draw grid + move variable to global | **`1.551s (322.3 steps/s) 792%`** | 25.641s (19.4 steps/s) 1228.5% |
+| Blast02 | V5: v4 2dconvolution instead of np.roll | 1.561s (320.2 steps/s) 786.9% | 24.111s (20.7 steps/s) 1306.4% |
+| Blast02 | GPT5-thinking-ask-to-opti-2-shot | 1.683s (297 steps/s) 729.8% | **`4.670s (107 steps/s) 6745.1%`** |
+| Blast02 | V3: V2 + remove unnecessary code | 1.757s (284.5 steps/s) 699.1% | 27.613s (18.1 steps/s) 1140% |
+| Blast02 | V2: Base version + numpy | 2.442s (204.6 steps/s) 503% | 28.162s (17.7 steps/s) 1118.5% |
+| Blast02 | V1: Base version | 12.284s (40.7 steps/s) 100% | 315s (1.5 steps/s) 100% |
+| Blast02 | GPT5-thinking-no-opti-1-shot | 19.760s (25.3 steps/s) 62.1% | 21.636s (23.1 steps/s) 1455.9%  |
 
 # After the 500 steps 10px your grid should look like this:
 <img width="1281" height="720" alt="image" src="https://github.com/user-attachments/assets/8765ca2f-44ef-48b6-bc18-caaa834d95fe" />
@@ -68,7 +68,7 @@ std::uniform_int_distribution<int> dist(0, 1);
 
 | Author | Version / Technique | Language | ⏱️ Time 5,000 steps (10px) | ⏱️ Time 5,000 steps (5px) | ⏱️ Time 5,000 steps (2px) |
 |---------|-----------|----------|-------------------------|---------------------------|---------------------------|
-| Blast02 | V1: Base version | C++ | 3.291s (1518.8 steps/s) 100% | 8.622s (579.8 steps/s) 100% | 46.431 (107.6 steps/s) 100% |
+| Blast02 | V1: Base version | C++ | 1.156s (4324.5 steps/s) 100% | 3.0763s (1625.3 steps/s) 100% | 17.308 (288.8 steps/s) 100% |
 
 # After the 5,000 steps 10px your grid should look like this:
 <img width="1281" height="720" alt="image" src="https://github.com/user-attachments/assets/4ad1ae97-ba97-47e9-bbc2-2d2267f30d1c" />
